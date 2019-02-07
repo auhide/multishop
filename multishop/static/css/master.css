@@ -1,0 +1,111 @@
+/* BLUE BACKGROUND: #0D27FF */
+
+.bg{
+   overflow-x: hidden;
+   background-color: #ECF0F1; 
+}
+
+.shop-logo{
+   margin-top: 50%;
+   width: 70px;
+   heigth:70px;
+   border-radius: 70%;
+   transition: .4s;
+}
+
+/* Shop logo animations */
+.shop{ filter: grayscale(100%); transition: .4s; }
+
+.shop:hover { filter: grayscale(0%); }
+
+.shop-logo:hover{ transform: scale(1.5); }
+
+/* Shop tab you are on right now */
+.active{
+   filter: grayscale(0%);
+}
+
+.jumbotron {
+   background-color:transparent !important; 
+}
+
+input { 
+   text-align: center; 
+}
+
+.title{
+   font-family: 'Exo', sans-serif;
+   color: #808080;
+}
+
+.text{
+   font-family: 'Exo', sans-serif;
+   color: #808080;
+   font-size: 20px;
+}
+
+.mynav{
+   position: fixed;
+}
+
+.newhr{ height: 12px; border: 0; box-shadow: inset 0 12px 12px -12px rgba(0, 0, 0, 0.5); }
+
+.product-image{
+   margin-right: 10%;
+   width: 80px;
+   height: 80px;
+   border-radius: 30%;
+   transition: .4s;
+}
+
+.product-image:hover{ transform: scale(2);}
+
+
+
+.prodlink,.prodlink:link,.prodlink:visited,.prodlink:hover,.prodlink:focus,.prodlink:active{
+   color: inherit;
+   text-decoration: none;
+}
+
+
+/* FORMS */
+.form-control {
+   background-color: #EFE7BE;
+ }
+ 
+ .form-control::-webkit-input-placeholder { color: black; opacity: 0.5; }  /* WebKit, Blink, Edge */
+ .form-control:-moz-placeholder { color: black; opacity: 0.5; }  /* Mozilla Firefox 4 to 18 */
+ .form-control::-moz-placeholder { color: black; opacity: 0.5; }  /* Mozilla Firefox 19+ */
+ .form-control:-ms-input-placeholder { color: black; opacity: 0.5; }  /* Internet Explorer 10-11 */
+ .form-control::-ms-input-placeholder { color: black; opacity: 0.5; }  /* Microsoft Edge */
+
+
+ .form-control{
+   border-color: black;
+ }
+ 
+ textarea:focus,
+ input[type="text"]:focus,
+ input[type="password"]:focus,
+ input[type="datetime"]:focus,
+ input[type="datetime-local"]:focus,
+ input[type="date"]:focus,
+ input[type="month"]:focus,
+ input[type="time"]:focus,
+ input[type="week"]:focus,
+ input[type="number"]:focus,
+ input[type="email"]:focus,
+ input[type="url"]:focus,
+ input[type="search"]:focus,
+ input[type="tel"]:focus,
+ input[type="color"]:focus,
+ .uneditable-input:focus {   
+   border-color: black;
+   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px grey;
+   background-color: white;
+   outline: 0 none;
+ }
+
+ input{
+    width: 50px;
+ }

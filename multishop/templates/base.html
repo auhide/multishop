@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html>
+    <head>
+        
+        <!-- STATIC FILES -->
+        <link rel="stylesheet" type="text/css" href="{% static 'css/master.css' %}">
+        <script type="text/javascript" src="{% static 'js/master_js.js' %}"></script>
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+        <!-- FONTS -->
+        <link href="https://fonts.googleapis.com/css?family=PT+Serif" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Exo" rel="stylesheet"> 
+
+    </head>
+    <body class="bg">
+
+        <div class="jumbotron">
+            <div class="row">
+                <div class="col-2" align="center">
+                    <br>
+                    <div class="mynav" align="right">
+                        <a {% if '/' == request.path %} class="active shop" {% else %} class="shop" {% endif %} href="{% url 'home' %}"><img class="shop-logo" src="{% static 'images/home.png' %}" alt="No image found"></a><br>
+                        <a {% if '/shop/bazar/' == request.path %} class="active shop" {% else %} class="shop" {% endif %} href="{% url 'shops:bazar' %}"><img class="shop-logo" src="{% static 'images/bazar.png' %}" alt="No image found"></a><br>
+                        <a {% if '/shop/olx/' == request.path %} class="active shop" {% else %} class="shop" {% endif %} href="{% url 'shops:olx' %}"><img class="shop-logo" src="{% static 'images/olx.png' %}" alt="No image found"></a><br>
+                        <a {% if '/shop/emag/' == request.path %} class="active shop" {% else %} class="shop" {% endif %} href="{% url 'shops:emag' %}"><img class="shop-logo" src="{% static 'images/emag.png' %}" alt="No image found"></a><br>
+                    </div>
+                </div>
+                <div class="col-8" align="center">
+                    <br><br>
+                    {% block content %}
+                    
+                    {% endblock content %}
+                </div>
+
+            </div>
+        </div>
+
+    </body>
+</html>
