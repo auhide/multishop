@@ -14,7 +14,7 @@ def scrape_emag(searched_words, price_range):
     # An example for a link created with a user input that is: adidas shoe
     # https://www.emag.bg/search/adidas%20shoe?ref=effective_search#opensearch
 
-    for page in range(1, 4):
+    for page in range(1, 10):
         url = "https://www.emag.bg/search/" + "+".join(searched_words).lower() + "/p" + str(page)
 
         source = requests.get(url).text

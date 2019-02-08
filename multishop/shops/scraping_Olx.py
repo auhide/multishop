@@ -14,7 +14,7 @@ def scrape_olx(keywords, price_range):
     searched_products = {}
 
     try:
-        for page in range(1, 4):
+        for page in range(1, 10):
             url = "https://www.olx.bg/ads/q-" + "-".join(keywords) + "/" + "?page=" + str(page)
 
             print(url)

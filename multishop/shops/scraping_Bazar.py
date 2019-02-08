@@ -2,6 +2,8 @@ from bs4 import BeautifulSoup
 import requests
 import re
 
+
+
 def scrape_bazar(keywords, price_range):
     '''
     Based on user's keywords(list) and the price_range(tuple) 
@@ -12,7 +14,7 @@ def scrape_bazar(keywords, price_range):
     searched_products = {}
 
     try:
-        for page in range(1, 4):
+        for page in range(1, 10):
             url = "https://bazar.bg/obiavi?q=" + "%20".join(keywords) + "&page=" + str(page)
 
             source = requests.get(url).text
