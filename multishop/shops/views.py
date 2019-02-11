@@ -1,16 +1,16 @@
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django import forms
-from django.http import HttpResponse, HttpResponseRedirect
 from django.views.generic import (TemplateView,
                                   DetailView,
                                   ListView,
                                   CreateView)
 from .models import ShopSearch, Product
 
-from .scraping_emag import scrape_emag
-from .scraping_Olx import scrape_olx
-from .scraping_Bazar import scrape_bazar
+from .storescraper import (scrape_emag, 
+                           scrape_olx, 
+                           scrape_bazar, 
+                           mixed_search)
 
 
 def change_placeholders(form):
@@ -148,3 +148,39 @@ class BazarView(CustomCreateView):
         except:
             print("ERROR")
             return super().form_invalid(form)
+
+class MixedSearchView(CustomCreateView):
+    template_name = "shops/mixed.html"
+    model = ShopSearch
+
+    success_url = reverse_lazy("shops:results")
+
+    fields = ["searched_product", "minimum_price", "maximum_price"]
+
+    def form_valid(self, form):
+        # Deleting all previous Product objects
+        Product.objects.all().delete()
+        ShopSearch.objects.all().delete()
+
+        super().form_valid(form)
+
+        words_list = self.object.searched_product.split()
+        # print(words_list)
+        # print(self.object.minimum_price, ":", self.object.maximum_price)
+        price_range = (int(self.object.minimum_price), int(self.object.maximum_price))
+        suitable_items = mixed_search(words_list, price_range)
+
+        # print(suitable_items)
+
+        for item, values in suitable_items.items():
+            product = Product.objects.create(name=item, 
+                                             price=values[0], 
+                                             shop_search=form.instance, 
+                                             product_url=values[1], 
+                                             product_img=values[2])
+        try:
+                return super().form_valid(form)
+        except:
+            print("ERROR")
+            return super().form_invalid(form)
+        

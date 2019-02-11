@@ -9,5 +9,6 @@ urlpatterns = [
     path("emag/", views.EmagView.as_view(), name="emag"),
     path("olx/", views.OlxView.as_view(), name="olx"),
     path("bazar/", views.BazarView.as_view(), name="bazar"),
+    path("mixed/", views.MixedSearchView.as_view(), name="mixedsearch"),
     path("results/", views.ResultsView.as_view(), name="results")
 ]
